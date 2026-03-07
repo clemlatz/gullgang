@@ -1,0 +1,54 @@
+{
+  "app": {
+    "title": "Gang of Gulls",
+    "subtitle": "A card game for 2 to 8 players"
+  },
+  "lobby": {
+    "create": "Create a game",
+    "createBtn": "Create",
+    "join": "Join a game",
+    "joinBtn": "Join",
+    "namePlaceholder": "Your name",
+    "codePlaceholder": "Game code",
+    "shareCode": "Share this code with friends",
+    "copyCode": "Copy",
+    "codeCopied": "Copied!",
+    "players": "Players",
+    "startGame": "Start game",
+    "waitingFor": "Waiting for the host to start…",
+    "minPlayers": "Need at least 2 players to start"
+  },
+  "errors": {
+    "nameRequired": "Please enter your name",
+    "codeRequired": "Please enter a game code",
+    "gameNotFound": "Game not found"
+  },
+  "game": {
+    "yourTurn": "Your turn",
+    "waitingFor": "Waiting for {name}…",
+    "drawPile": "Draw",
+    "discard": "Discard",
+    "discardDrawn": "Discard",
+    "replace": "Replace a card",
+    "usePower": "Use power & discard",
+    "announce": "Gang of Gulls!",
+    "lastRound": "Last round — {name} called Gang of Gulls!",
+    "roundEnd": "End of round",
+    "score": "Round scores",
+    "totalScore": "Total",
+    "nextRound": "Next round",
+    "gameOver": "Game over",
+    "winner": "{name} wins!",
+    "peek": "You peeked at a card:",
+    "peekInitial": "Look at your 2 closest cards, then click Ready",
+    "quickDiscardWindow": "Quick discard! ({seconds}s)",
+    "quickDiscardOwn": "Discard a matching card",
+    "quickDiscardOpponent": "Discard an opponent's matching card"
+  },
+  "cards": {
+    "selectOwn": "Select one of your cards",
+    "selectOpponent": "Select an opponent's card",
+    "selectToReplace": "Select which card to replace",
+    "selectSwap": "Select your card to swap"
+  }
+}

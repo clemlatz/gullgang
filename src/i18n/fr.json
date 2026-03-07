@@ -1,0 +1,54 @@
+{
+  "app": {
+    "title": "Gang de Mouettes",
+    "subtitle": "Un jeu de cartes pour 2 à 8 joueurs"
+  },
+  "lobby": {
+    "create": "Créer une partie",
+    "createBtn": "Créer",
+    "join": "Rejoindre une partie",
+    "joinBtn": "Rejoindre",
+    "namePlaceholder": "Votre prénom",
+    "codePlaceholder": "Code de partie",
+    "shareCode": "Partagez ce code avec vos amis",
+    "copyCode": "Copier",
+    "codeCopied": "Copié !",
+    "players": "Joueurs",
+    "startGame": "Démarrer la partie",
+    "waitingFor": "En attente du créateur de la partie…",
+    "minPlayers": "Il faut au moins 2 joueurs pour démarrer"
+  },
+  "errors": {
+    "nameRequired": "Veuillez saisir votre prénom",
+    "codeRequired": "Veuillez saisir un code de partie",
+    "gameNotFound": "Partie introuvable"
+  },
+  "game": {
+    "yourTurn": "C'est votre tour",
+    "waitingFor": "Tour de {name}…",
+    "drawPile": "Pioche",
+    "discard": "Défausse",
+    "discardDrawn": "Défausser",
+    "replace": "Remplacer une carte",
+    "usePower": "Utiliser le pouvoir et défausser",
+    "announce": "Gang de mouettes !",
+    "lastRound": "Dernier tour — {name} a annoncé Gang de mouettes !",
+    "roundEnd": "Fin de la manche",
+    "score": "Scores de la manche",
+    "totalScore": "Total",
+    "nextRound": "Manche suivante",
+    "gameOver": "Fin de partie",
+    "winner": "{name} gagne !",
+    "peek": "Vous avez regardé une carte :",
+    "peekInitial": "Regardez vos 2 cartes les plus proches, puis cliquez sur Prêt",
+    "quickDiscardWindow": "Défausse rapide ! ({seconds}s)",
+    "quickDiscardOwn": "Défausser une carte identique",
+    "quickDiscardOpponent": "Défausser la carte d'un adversaire"
+  },
+  "cards": {
+    "selectOwn": "Choisissez une de vos cartes",
+    "selectOpponent": "Choisissez la carte d'un adversaire",
+    "selectToReplace": "Choisissez la carte à remplacer",
+    "selectSwap": "Choisissez votre carte à échanger"
+  }
+}
