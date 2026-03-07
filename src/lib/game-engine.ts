@@ -598,10 +598,9 @@ function endRound(state: GameState): void {
   if (state.lastRoundAnnouncerId) {
     const announcer = state.players.find((p) => p.id === state.lastRoundAnnouncerId)!;
     if (announcer.roundScore! > minScore) {
-      announcer.roundScore! ; // will add below
       announcer.roundScore = announcer.roundScore! + 10;
-    } else if (announcer.roundScore === minScore) {
-      // They tied for lowest — they still win (0 penalty), score stays as is
+    } else {
+      announcer.roundScore = 0;
     }
   }
 
