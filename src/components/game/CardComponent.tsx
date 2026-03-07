@@ -57,30 +57,13 @@ export function CardComponent({ value, size = 'md', selected, selectable, onClic
         overflow: 'hidden',
         position: 'relative',
         flexShrink: 0,
-        background: isHidden ? 'linear-gradient(135deg, #0ea5e9 0%, #0284c7 50%, #0369a1 100%)' : '#fff',
+        background: '#fff',
         userSelect: 'none',
       }}
       title={label}
     >
       {isHidden ? (
-        // Card back
-        <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <div style={{
-            width: s.width - 14,
-            height: s.height - 14,
-            borderRadius: 4,
-            border: '2px solid rgba(255,255,255,0.3)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-            <img
-              src="/cards/Cartes_1.png"
-              alt="card back"
-              style={{ width: '70%', height: '70%', objectFit: 'contain', opacity: 0.4, filter: 'brightness(10)' }}
-            />
-          </div>
-        </div>
+        <img src="/cards/card_back.png" alt="card back" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
       ) : def ? (
         <>
           {/* Card image fills the card */}

@@ -22,7 +22,7 @@ export const CARD_DEFINITIONS: CardDefinition[] = [
     nameFr: 'Mouette obscure',
     latinName: 'Leucophaeus fuliginosus',
     power: null,
-    imageFile: 'Cartes_13.png',
+    imageFile: 'card_0.png',
     badgeColor: 'green',
   },
   {
@@ -31,7 +31,7 @@ export const CARD_DEFINITIONS: CardDefinition[] = [
     nameFr: 'Mouette rosée',
     latinName: 'Rhodostethia rosea',
     power: null,
-    imageFile: 'Cartes_14.png',
+    imageFile: 'card_1.png',
     badgeColor: 'green',
   },
   {
@@ -40,7 +40,7 @@ export const CARD_DEFINITIONS: CardDefinition[] = [
     nameFr: 'Mouette argentée',
     latinName: 'Chroicocephalus novaehollandiae',
     power: null,
-    imageFile: 'Cartes_3.png',
+    imageFile: 'card_2.png',
     badgeColor: 'green',
   },
   {
@@ -49,7 +49,7 @@ export const CARD_DEFINITIONS: CardDefinition[] = [
     nameFr: 'Mouette blanche',
     latinName: 'Pagophila eburnea',
     power: null,
-    imageFile: 'Cartes_11.png',
+    imageFile: 'card_3.png',
     badgeColor: 'green',
   },
   {
@@ -58,7 +58,7 @@ export const CARD_DEFINITIONS: CardDefinition[] = [
     nameFr: 'Mouette à queue fourchue',
     latinName: 'Creagrus furcatus',
     power: null,
-    imageFile: 'Cartes_12.png',
+    imageFile: 'card_4.png',
     badgeColor: 'yellow',
   },
   {
@@ -67,7 +67,7 @@ export const CARD_DEFINITIONS: CardDefinition[] = [
     nameFr: 'Mouette relique',
     latinName: 'Ichthyaetus relictus',
     power: null,
-    imageFile: 'Cartes_10.png',
+    imageFile: 'card_5.png',
     badgeColor: 'yellow',
   },
   {
@@ -76,7 +76,7 @@ export const CARD_DEFINITIONS: CardDefinition[] = [
     nameFr: 'Mouette des brumes',
     latinName: 'Rissa brevirostris',
     power: null,
-    imageFile: 'Cartes_9.png',
+    imageFile: 'card_6.png',
     badgeColor: 'yellow',
   },
   {
@@ -85,7 +85,7 @@ export const CARD_DEFINITIONS: CardDefinition[] = [
     nameFr: 'Mouette à tête grise',
     latinName: 'Chroicocephalus cirrocephalus',
     power: null,
-    imageFile: 'Cartes_7.png',
+    imageFile: 'card_7.png',
     badgeColor: 'yellow',
   },
   {
@@ -94,7 +94,7 @@ export const CARD_DEFINITIONS: CardDefinition[] = [
     nameFr: 'Mouette comptable',
     latinName: null,
     power: 'look-own',
-    imageFile: 'Cartes_8.png',
+    imageFile: 'card_8.png',
     badgeColor: 'red',
   },
   {
@@ -103,7 +103,7 @@ export const CARD_DEFINITIONS: CardDefinition[] = [
     nameFr: 'Mouette espionne',
     latinName: null,
     power: 'look-opponent',
-    imageFile: 'Cartes_5.png',
+    imageFile: 'card_9.png',
     badgeColor: 'red',
   },
   {
@@ -112,7 +112,7 @@ export const CARD_DEFINITIONS: CardDefinition[] = [
     nameFr: 'Mouette voleuse',
     latinName: null,
     power: 'swap-blind',
-    imageFile: 'Cartes_6.png',
+    imageFile: 'card_10.png',
     badgeColor: 'red',
   },
   {
@@ -121,7 +121,7 @@ export const CARD_DEFINITIONS: CardDefinition[] = [
     nameFr: 'Mouette stratège',
     latinName: null,
     power: 'look-and-swap',
-    imageFile: 'Cartes_4.png',
+    imageFile: 'card_15.png',
     badgeColor: 'red',
   },
   {
@@ -130,7 +130,7 @@ export const CARD_DEFINITIONS: CardDefinition[] = [
     nameFr: 'Mouette rieuse',
     latinName: null,
     power: 'discard-own',
-    imageFile: 'Cartes_15.png',
+    imageFile: 'card_20.png',
     badgeColor: 'red',
   },
 ];

@@ -59,7 +59,7 @@ export function Lobby({ onJoined }: LobbyProps) {
         <div style={{ textAlign: 'center', marginBottom: 40 }}>
           <div style={{ display: 'flex', justifyContent: 'center', gap: -10, marginBottom: 16 }}>
             {[0, 1, 2].map((i) => (
-              <img key={i} src="/cards/Cartes_1.png" alt="" style={{ width: 60, height: 84, borderRadius: 6, border: '2px solid white', marginLeft: i > 0 ? -20 : 0, transform: `rotate(${(i - 1) * 12}deg)`, boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }} />
+              <img key={i} src="/cards/card_back.png" alt="" style={{ width: 60, height: 84, borderRadius: 6, border: '2px solid white', marginLeft: i > 0 ? -20 : 0, transform: `rotate(${(i - 1) * 12}deg)`, boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }} />
             ))}
           </div>
           <h1 style={{ color: 'white', fontSize: 36, fontWeight: 900, margin: 0, textShadow: '0 2px 8px rgba(0,0,0,0.3)', letterSpacing: '-0.5px' }}>

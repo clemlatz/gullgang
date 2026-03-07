@@ -35,7 +35,16 @@ let wss: WebSocketServer | null = null;
 
 export function initWebSocketServer(server: any): void {
   if (wss) return;
-  wss = new WebSocketServer({ server, path: '/ws' });
+  wss = new WebSocketServer({ noServer: true });
+
+  server.on('upgrade', (req: IncomingMessage, socket: any, head: any) => {
+    const url = new URL(req.url ?? '/', `http://${req.headers.host}`);
+    if (url.pathname === '/ws') {
+      wss!.handleUpgrade(req, socket, head, (ws) => {
+        wss!.emit('connection', ws, req);
+      });
+    }
+  });
 
   wss.on('connection', (ws: WebSocket, req: IncomingMessage) => {
     const url = new URL(req.url ?? '/', `http://${req.headers.host}`);
