@@ -43,7 +43,14 @@
     "peekInitial": "Regardez vos 2 cartes les plus proches, puis cliquez sur Prêt",
     "quickDiscardWindow": "Défausse rapide ! ({seconds}s)",
     "quickDiscardOwn": "Défausser une carte identique",
-    "quickDiscardOpponent": "Défausser la carte d'un adversaire"
+    "quickDiscardOpponent": "Défausser la carte d'un adversaire",
+    "quitBtn": "Quitter",
+    "quitConfirmTitle": "Quitter la partie ?",
+    "quitConfirmMessage": "Si vous quittez, la partie se terminera pour tous les joueurs.",
+    "quitConfirm": "Oui, quitter",
+    "quitCancel": "Annuler",
+    "abandonedBy": "{name} a quitté la partie. La partie est terminée.",
+    "backToHome": "Retour à l'accueil"
   },
   "cards": {
     "selectOwn": "Choisissez une de vos cartes",

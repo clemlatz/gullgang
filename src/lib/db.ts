@@ -58,3 +58,8 @@ export function deleteOldGames(): void {
   const cutoff = Date.now() - 24 * 60 * 60 * 1000;
   db.prepare('DELETE FROM games WHERE updated_at < ?').run(cutoff);
 }
+
+export function deleteGame(code: string): void {
+  const db = openDb();
+  db.prepare('DELETE FROM games WHERE code = ?').run(code);
+}

@@ -43,7 +43,14 @@
     "peekInitial": "Look at your 2 closest cards, then click Ready",
     "quickDiscardWindow": "Quick discard! ({seconds}s)",
     "quickDiscardOwn": "Discard a matching card",
-    "quickDiscardOpponent": "Discard an opponent's matching card"
+    "quickDiscardOpponent": "Discard an opponent's matching card",
+    "quitBtn": "Quit",
+    "quitConfirmTitle": "Quit the game?",
+    "quitConfirmMessage": "Leaving will end the game for all players.",
+    "quitConfirm": "Yes, quit",
+    "quitCancel": "Cancel",
+    "abandonedBy": "{name} has quit the game. The game has ended.",
+    "backToHome": "Back to home"
   },
   "cards": {
     "selectOwn": "Select one of your cards",

@@ -8,6 +8,9 @@ interface BoardProps {
   send: (action: string, payload?: Record<string, unknown>) => void;
   peekData: any | null;
   clearPeek: () => void;
+  onLeave: () => void;
+  abandonedBy: string | null;
+  clearAbandoned: () => void;
 }
 
 type SelectionMode =
@@ -23,9 +26,10 @@ type SelectionMode =
   | 'quick-discard-own'
   | 'quick-discard-pique';
 
-export function Board({ state, send, peekData, clearPeek }: BoardProps) {
+export function Board({ state, send, peekData, clearPeek, onLeave, abandonedBy, clearAbandoned }: BoardProps) {
   const { t } = useTranslation();
   const [selectionMode, setSelectionMode] = useState<SelectionMode>(null);
+  const [showQuitConfirm, setShowQuitConfirm] = useState(false);
   const [swapTargetPlayer, setSwapTargetPlayer] = useState<string | null>(null);
   const [swapTargetIndex, setSwapTargetIndex] = useState<number | null>(null);
   const [quickDiscardPiqueTarget, setQuickDiscardPiqueTarget] = useState<string | null>(null);
@@ -161,7 +165,15 @@ export function Board({ state, send, peekData, clearPeek }: BoardProps) {
             </span>
           ))}
         </div>
-        <span style={{ fontWeight: 700, color: '#64748b', fontSize: 13, fontFamily: 'monospace' }}>{state.code}</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <span style={{ fontWeight: 700, color: '#64748b', fontSize: 13, fontFamily: 'monospace' }}>{state.code}</span>
+          <button
+            onClick={() => setShowQuitConfirm(true)}
+            style={{ padding: '5px 12px', borderRadius: 8, border: '1px solid rgba(239,68,68,0.4)', background: 'rgba(239,68,68,0.1)', color: '#f87171', fontWeight: 700, cursor: 'pointer', fontSize: 12, fontFamily: 'inherit' }}
+          >
+            {t('game.quitBtn')}
+          </button>
+        </div>
       </div>
 
       {/* Status banner */}
@@ -195,6 +207,39 @@ export function Board({ state, send, peekData, clearPeek }: BoardProps) {
             )}
             <button onClick={clearPeek} style={{ marginTop: 20, padding: '10px 24px', borderRadius: 10, border: 'none', background: '#38bdf8', color: '#0f172a', fontWeight: 700, cursor: 'pointer', fontFamily: 'inherit' }}>
               OK
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Quit confirm modal */}
+      {showQuitConfirm && (
+        <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.75)', zIndex: 110, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{ background: '#1e293b', borderRadius: 16, padding: 28, textAlign: 'center', maxWidth: 320, width: '90%' }}>
+            <h2 style={{ margin: '0 0 12px', fontSize: 20, color: '#f0f9ff' }}>{t('game.quitConfirmTitle')}</h2>
+            <p style={{ margin: '0 0 24px', color: '#94a3b8', fontSize: 14 }}>{t('game.quitConfirmMessage')}</p>
+            <div style={{ display: 'flex', gap: 12, justifyContent: 'center' }}>
+              <button onClick={() => setShowQuitConfirm(false)} style={actionBtn('#334155', 'white')}>
+                {t('game.quitCancel')}
+              </button>
+              <button
+                onClick={() => { send('quit-game'); onLeave(); }}
+                style={actionBtn('#dc2626', 'white')}
+              >
+                {t('game.quitConfirm')}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Game abandoned modal */}
+      {abandonedBy && (
+        <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.75)', zIndex: 110, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{ background: '#1e293b', borderRadius: 16, padding: 28, textAlign: 'center', maxWidth: 320, width: '90%' }}>
+            <p style={{ margin: '0 0 24px', color: '#cbd5e1', fontSize: 15 }}>{t('game.abandonedBy', { name: abandonedBy })}</p>
+            <button onClick={() => { clearAbandoned(); onLeave(); }} style={actionBtn('#38bdf8', '#0f172a')}>
+              {t('game.backToHome')}
             </button>
           </div>
         </div>

@@ -43,7 +43,7 @@ export default function App() {
 }
 
 function GameApp({ session, onLeave }: { session: Session; onLeave: () => void }) {
-  const { state, status, peekData, send, clearPeek } = useWebSocket(session.code, session.playerId);
+  const { state, status, peekData, abandonedBy, send, clearPeek, clearAbandoned } = useWebSocket(session.code, session.playerId);
 
   // Handle game not found (stale session)
   if (status === 'connected' && !state) {
@@ -88,6 +88,9 @@ function GameApp({ session, onLeave }: { session: Session; onLeave: () => void }
       send={send}
       peekData={peekData}
       clearPeek={clearPeek}
+      onLeave={onLeave}
+      abandonedBy={abandonedBy}
+      clearAbandoned={clearAbandoned}
     />
   );
 }

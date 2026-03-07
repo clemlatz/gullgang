@@ -1,6 +1,6 @@
 import { WebSocketServer, WebSocket } from 'ws';
 import type { IncomingMessage } from 'http';
-import { loadGame, saveGame } from './db.js';
+import { loadGame, saveGame, deleteGame } from './db.js';
 import {
   buildPlayerView,
   startRound,
@@ -207,6 +207,14 @@ function handleMessage(ws: WebSocket, msg: any): void {
       startRound(state);
       result = { ok: true };
       break;
+    }
+
+    case 'quit-game': {
+      const player = state.players.find((p) => p.id === playerId);
+      const playerName = player?.name ?? '?';
+      broadcastToGame(gameCode, { type: 'game-abandoned', playerName });
+      deleteGame(gameCode);
+      return;
     }
 
     default:

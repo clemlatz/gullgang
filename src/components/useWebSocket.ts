@@ -7,14 +7,17 @@ interface UseWebSocketReturn {
   state: PlayerView | null;
   status: WSStatus;
   peekData: any | null;
+  abandonedBy: string | null;
   send: (action: string, payload?: Record<string, unknown>) => void;
   clearPeek: () => void;
+  clearAbandoned: () => void;
 }
 
 export function useWebSocket(code: string, playerId: string): UseWebSocketReturn {
   const [gameState, setGameState] = useState<PlayerView | null>(null);
   const [status, setStatus] = useState<WSStatus>('connecting');
   const [peekData, setPeekData] = useState<any | null>(null);
+  const [abandonedBy, setAbandonedBy] = useState<string | null>(null);
   const wsRef = useRef<WebSocket | null>(null);
   const reconnectTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -36,6 +39,8 @@ export function useWebSocket(code: string, playerId: string): UseWebSocketReturn
           setGameState(msg.data);
         } else if (msg.type === 'peek' || msg.type === 'peek-initial') {
           setPeekData(msg);
+        } else if (msg.type === 'game-abandoned') {
+          setAbandonedBy(msg.playerName);
         }
       } catch {}
     };
@@ -65,6 +70,7 @@ export function useWebSocket(code: string, playerId: string): UseWebSocketReturn
   }, []);
 
   const clearPeek = useCallback(() => setPeekData(null), []);
+  const clearAbandoned = useCallback(() => setAbandonedBy(null), []);
 
-  return { state: gameState, status, peekData, send, clearPeek };
+  return { state: gameState, status, peekData, abandonedBy, send, clearPeek, clearAbandoned };
 }
