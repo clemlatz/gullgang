@@ -18,6 +18,10 @@ score is then added to the scores from previous rounds to get the player's total
 The game ends when one player's total score reaches or exceeds 100 points.
 The player with the lowest total score at that point wins.
 
+Gang of Seagulls is a memory game. Once a player has placed cards face down in front of them, they may no longer
+look at them (unless the power of a drawn card allows it). Players must therefore memorize the values of the
+cards on the table.
+
 ## Card Anatomy
 
 Each card has a value, shown in a coloured circle in the top-left corner. This value is added to the player's score

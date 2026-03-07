@@ -135,6 +135,10 @@ function handleMessage(ws: WebSocket, msg: any): void {
       // Check if all players peeked (all have their first 2 revealed)
       const allPeeked = state.players.every((p) => p.hand[0]?.revealed && p.hand[1]?.revealed);
       if (allPeeked) {
+        for (const p of state.players) {
+          p.hand[0].revealed = false;
+          p.hand[1].revealed = false;
+        }
         state.phase = 'playing';
         saveGame(state);
         broadcastState(state);

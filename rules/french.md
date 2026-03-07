@@ -18,6 +18,10 @@ ce score est ajouté au score des manches précédentes pour obtenir le score to
 La partie s'arrête lorsque le score total d'un des joueurs atteint ou dépasse 100 points.
 Le joueur qui a alors le plus petit l’emporte.
 
+Gang de Mouettes est un jeu de mémoire. Une fois qu'il a posées des faces cachées devant lui, le joueur ne peut plus
+les regarder (sauf si le pouvoir d'une carte piochée le lui permet). Le joueur doit donc mémoriser les valeur des
+cartes posées sur la table.
+
 ## Anatomie d'une carte
 
 Chaque carte possède une valeur, indiqué dans un cercle de couleur en haut à gauche de la carte. C'est cette valeur
