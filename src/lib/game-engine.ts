@@ -565,8 +565,15 @@ export function actionAnnounce(state: GameState, playerId: string): ActionResult
 
   state.phase = 'last-round';
   state.lastRoundAnnouncerId = playerId;
-  // All other players get one more turn; announcer has already played
-  state.lastRoundTurnsLeft = state.players.length - 1;
+  state.lastRoundTurnsLeft = state.players.length;
+  // Advance past announcer so they play last
+  const n = state.players.length;
+  state.currentPlayerIndex = (state.currentPlayerIndex + 1) % n;
+  state.turnPhase = 'await-draw';
+  state.drawnCard = null;
+  state.drawnFromDiscard = false;
+  state.pendingPower = null;
+  state.quickDiscardWindow = null;
 
   logEvent(state, 'announce', playerId);
   return { ok: true, events: [] };
