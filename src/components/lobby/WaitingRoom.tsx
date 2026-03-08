@@ -13,7 +13,7 @@ export function WaitingRoom({ state, onStartGame, isHost }: WaitingRoomProps) {
   const [copied, setCopied] = useState(false);
 
   function copyCode() {
-    navigator.clipboard.writeText(state.code);
+    navigator.clipboard.writeText(window.location.href);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   }
@@ -31,11 +31,11 @@ export function WaitingRoom({ state, onStartGame, isHost }: WaitingRoomProps) {
           {/* Share code */}
           <div style={{ textAlign: 'center', marginBottom: 28 }}>
             <p style={{ margin: '0 0 8px', color: '#64748b', fontSize: 13 }}>{t('lobby.shareCode')}</p>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12 }}>
-              <span style={{ fontSize: 36, fontWeight: 900, letterSpacing: 8, color: '#0284c7', fontFamily: 'monospace' }}>
-                {state.code}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, background: '#f0f9ff', border: '2px solid #bae6fd', borderRadius: 10, padding: '8px 12px' }}>
+              <span style={{ flex: 1, fontSize: 13, color: '#0284c7', fontFamily: 'monospace', wordBreak: 'break-all', textAlign: 'left' }}>
+                {typeof window !== 'undefined' ? window.location.href : ''}
               </span>
-              <button onClick={copyCode} style={{ padding: '8px 14px', borderRadius: 8, border: '2px solid #0284c7', background: 'transparent', color: '#0284c7', fontWeight: 700, cursor: 'pointer', fontSize: 13, fontFamily: 'inherit' }}>
+              <button onClick={copyCode} style={{ flexShrink: 0, padding: '6px 12px', borderRadius: 8, border: '2px solid #0284c7', background: 'transparent', color: '#0284c7', fontWeight: 700, cursor: 'pointer', fontSize: 13, fontFamily: 'inherit' }}>
                 {copied ? t('lobby.codeCopied') : t('lobby.copyCode')}
               </button>
             </div>
