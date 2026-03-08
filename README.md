@@ -1,6 +1,10 @@
-# Gang de Mouettes — Web App
+# Gull Gang — Web App
 
-Online multiplayer implementation of **Gang de Mouettes**, built with Astro + React + WebSockets.
+Online multiplayer implementation of **Gull Gang**, built with Astro + React + WebSockets.
+
+## About
+
+Gull Gang is inspired by the French card game [**Gang de Mouettes**](https://gang-de-mouettes.clemlatz.dev/), created by Clément Latzarus.
 
 ## Stack
 

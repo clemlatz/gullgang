@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Gang of Seagulls is a card game for 2 to 8 players, heavily inspired by the classic "Tamalou" but much better
+Gull Gang is a card game for 2 to 8 players, heavily inspired by the classic "Tamalou" but much better
 because there are seagulls.
 
 The game is offered as "print and play" under a Creative Commons license, meaning you can download the
@@ -10,7 +10,7 @@ cards and print them yourself.
 
 ## Objective
 
-In **Gang of Seagulls**, the goal is to have the *lowest score* possible.
+In **Gull Gang**, the goal is to have the *lowest score* possible.
 
 At the end of a round, each player adds up the values of the cards laid in front of them to get their score. This
 score is then added to the scores from previous rounds to get the player's total score.
@@ -18,7 +18,7 @@ score is then added to the scores from previous rounds to get the player's total
 The game ends when one player's total score reaches or exceeds 100 points.
 The player with the lowest total score at that point wins.
 
-Gang of Seagulls is a memory game. Once a player has placed cards face down in front of them, they may no longer
+Gull Gang is a memory game. Once a player has placed cards face down in front of them, they may no longer
 look at them (unless the power of a drawn card allows it). Players must therefore memorize the values of the
 cards on the table.
 
@@ -66,12 +66,12 @@ Play goes clockwise. The player sitting after the dealer goes first.
 
 ### End of a Round
 
-After finishing their turn, a player may call "Gang of Seagulls!" if they think they have the lowest score at
+After finishing their turn, a player may call "Gull Gang!" if they think they have the lowest score at
 the table. One final turn is then played, ending with the player who made the call.
 
 Each player reveals their cards and adds up their values to get their score for that round.
 
-If the player who called "Gang of Seagulls!" has the lowest score of the round, they score 0 points.
+If the player who called "Gull Gang!" has the lowest score of the round, they score 0 points.
 Otherwise, they score their normal score plus a 10-point penalty.
 
 Round scores are added to previous round scores to produce the total score.

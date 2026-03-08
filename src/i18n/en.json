@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Gang of Gulls",
+    "title": "Gull Gang",
     "subtitle": "A card game for 2 to 8 players"
   },
   "lobby": {
@@ -29,8 +29,8 @@
     "discardDrawn": "Discard",
     "replace": "Replace a card",
     "usePower": "Use power & discard",
-    "announce": "Gang of Gulls!",
-    "lastRound": "Last round — {name} called Gang of Gulls!",
+    "announce": "Gull Gang!",
+    "lastRound": "Last round — {name} called Gull Gang!",
     "roundEnd": "End of round",
     "score": "Round scores",
     "totalScore": "Total",
