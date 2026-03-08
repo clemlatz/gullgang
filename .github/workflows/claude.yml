@@ -46,6 +46,7 @@ jobs:
           # assignee_trigger: "claude-bot"
 
           # Optional: Configure Claude's behavior with CLI arguments
+          allowed_tools: "Bash(gh pr create:*),Bash(gh pr list:*)"
           # claude_args: |
           #   --model claude-opus-4-1-20250805
           #   --max-turns 10
