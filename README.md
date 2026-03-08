@@ -6,6 +6,10 @@ Online multiplayer implementation of **Gull Gang**, built with Astro + React + W
 
 Gull Gang is inspired by the French card game [**Gang de Mouettes**](https://gang-de-mouettes.clemlatz.dev/), created by Clément Latzarus.
 
+## Experiment
+
+This project is a personal experiment: every line of code — and this README, including this very paragraph — was written by [Claude Code](https://claude.ai/code), Anthropic's AI coding assistant. I imposed a strict rule on myself: I would not write a single line of code manually. This is not an approach I would take on a production project; the point is to learn how Claude Code works, explore its capabilities, and sharpen my prompting skills.
+
 ## Stack
 
 - **Frontend**: Astro (SSR) + React islands
