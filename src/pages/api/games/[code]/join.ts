@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
 import { nanoid } from 'nanoid';
 import { loadGame, saveGame } from '../../../../lib/db.js';
+import { broadcastState } from '../../../../lib/ws-server.js';
 
 export const POST: APIRoute = async ({ params, request }) => {
   try {
@@ -36,6 +37,7 @@ export const POST: APIRoute = async ({ params, request }) => {
     });
 
     saveGame(state);
+    broadcastState(state);
 
     return new Response(
       JSON.stringify({ code, playerId, gameId: state.id }),

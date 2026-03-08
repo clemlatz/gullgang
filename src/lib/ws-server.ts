@@ -27,15 +27,26 @@ interface Client {
   playerId: string;
 }
 
-const clients = new Map<WebSocket, Client>();
-// gameCode -> Set<playerId>
-const gameRooms = new Map<string, Set<string>>();
+// Use globalThis so the Map survives Vite hot-module reloads in dev.
+// Without this, each reload creates a fresh empty Map while the live WS
+// server's connection handlers still hold a reference to the old Map.
+declare global {
+  // eslint-disable-next-line no-var
+  var __gdm_clients: Map<WebSocket, Client> | undefined;
+  // eslint-disable-next-line no-var
+  var __gdm_wss: WebSocketServer | null | undefined;
+}
+globalThis.__gdm_clients ??= new Map<WebSocket, Client>();
+globalThis.__gdm_wss ??= null;
 
-let wss: WebSocketServer | null = null;
+const clients = globalThis.__gdm_clients;
+
+let wss: WebSocketServer | null = globalThis.__gdm_wss;
 
 export function initWebSocketServer(server: any): void {
   if (wss) return;
   wss = new WebSocketServer({ noServer: true });
+  globalThis.__gdm_wss = wss;
 
   server.on('upgrade', (req: IncomingMessage, socket: any, head: any) => {
     const url = new URL(req.url ?? '/', `http://${req.headers.host}`);
@@ -57,8 +68,6 @@ export function initWebSocketServer(server: any): void {
     }
 
     clients.set(ws, { ws, gameCode, playerId });
-    if (!gameRooms.has(gameCode)) gameRooms.set(gameCode, new Set());
-    gameRooms.get(gameCode)!.add(playerId);
 
     // Mark player connected
     const state = loadGame(gameCode);
@@ -67,9 +76,7 @@ export function initWebSocketServer(server: any): void {
       if (player) {
         player.connected = true;
         saveGame(state);
-        broadcastToGame(gameCode, { type: 'player-connected', playerId });
-        // Send current state to joining client
-        ws.send(JSON.stringify({ type: 'state', data: buildPlayerView(state, playerId) }));
+        broadcastState(state);
       }
     }
 
