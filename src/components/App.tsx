@@ -82,6 +82,7 @@ function GameApp({ session, onLeave }: { session: Session; onLeave: () => void }
         state={state}
         isHost={isHost}
         onStartGame={() => send('start-game')}
+        onLeave={onLeave}
       />
     );
   }

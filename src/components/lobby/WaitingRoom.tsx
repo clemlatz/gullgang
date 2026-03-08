@@ -5,10 +5,11 @@ import type { PlayerView } from '../../lib/game-engine.js';
 interface WaitingRoomProps {
   state: PlayerView;
   onStartGame: () => void;
+  onLeave: () => void;
   isHost: boolean;
 }
 
-export function WaitingRoom({ state, onStartGame, isHost }: WaitingRoomProps) {
+export function WaitingRoom({ state, onStartGame, onLeave, isHost }: WaitingRoomProps) {
   const { t } = useTranslation();
   const [copied, setCopied] = useState(false);
 
@@ -81,6 +82,11 @@ export function WaitingRoom({ state, onStartGame, isHost }: WaitingRoomProps) {
               </div>
             </div>
           )}
+          <button
+            onClick={onLeave}
+            style={{ width: '100%', marginTop: 12, padding: '10px 20px', borderRadius: 12, border: '2px solid #94a3b8', background: 'transparent', color: '#94a3b8', fontWeight: 700, fontSize: 14, cursor: 'pointer', fontFamily: 'inherit' }}>
+            ← Back
+          </button>
         </div>
       </div>
     </div>

@@ -9,7 +9,6 @@
     "join": "Rejoindre une partie",
     "joinBtn": "Rejoindre",
     "namePlaceholder": "Votre prénom",
-    "codePlaceholder": "Code de partie",
     "shareCode": "Partagez ce lien avec vos amis",
     "copyCode": "Copier",
     "codeCopied": "Copié !",
@@ -20,7 +19,6 @@
   },
   "errors": {
     "nameRequired": "Veuillez saisir votre prénom",
-    "codeRequired": "Veuillez saisir un code de partie",
     "gameNotFound": "Partie introuvable"
   },
   "game": {

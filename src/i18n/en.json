@@ -9,7 +9,6 @@
     "join": "Join a game",
     "joinBtn": "Join",
     "namePlaceholder": "Your name",
-    "codePlaceholder": "Game code",
     "shareCode": "Share this link with friends",
     "copyCode": "Copy",
     "codeCopied": "Copied!",
@@ -20,7 +19,6 @@
   },
   "errors": {
     "nameRequired": "Please enter your name",
-    "codeRequired": "Please enter a game code",
     "gameNotFound": "Game not found"
   },
   "game": {

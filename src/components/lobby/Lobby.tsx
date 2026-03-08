@@ -10,7 +10,6 @@ export function Lobby({ onJoined, initialCode }: LobbyProps) {
   const { t } = useTranslation();
   const [mode, setMode] = useState<'home' | 'create' | 'join'>(initialCode ? 'join' : 'home');
   const [name, setName] = useState('');
-  const [code, setCode] = useState(initialCode?.toUpperCase() ?? '');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -35,10 +34,9 @@ export function Lobby({ onJoined, initialCode }: LobbyProps) {
 
   async function handleJoin() {
     if (!name.trim()) { setError(t('errors.nameRequired')); return; }
-    if (!code.trim()) { setError(t('errors.codeRequired')); return; }
     setLoading(true); setError('');
     try {
-      const res = await fetch(`/api/games/${code.trim().toUpperCase()}/join`, {
+      const res = await fetch(`/api/games/${initialCode!.trim().toUpperCase()}/join`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: name.trim() }),
@@ -78,9 +76,6 @@ export function Lobby({ onJoined, initialCode }: LobbyProps) {
               <button onClick={() => setMode('create')} style={btnStyle('#0ea5e9')}>
                 🐦 {t('lobby.create')}
               </button>
-              <button onClick={() => setMode('join')} style={btnStyle('#475569')}>
-                🔗 {t('lobby.join')}
-              </button>
             </div>
           )}
 
@@ -118,22 +113,15 @@ export function Lobby({ onJoined, initialCode }: LobbyProps) {
                 placeholder={t('lobby.namePlaceholder')}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                onKeyDown={(e) => e.key === 'Enter' && handleJoin()}
                 maxLength={24}
                 autoFocus
-              />
-              <input
-                style={{ ...inputStyle, textTransform: 'uppercase', letterSpacing: '4px', fontWeight: 700, fontSize: 18 }}
-                placeholder={t('lobby.codePlaceholder')}
-                value={code}
-                onChange={(e) => setCode(e.target.value.toUpperCase())}
-                onKeyDown={(e) => e.key === 'Enter' && handleJoin()}
-                maxLength={6}
               />
               {error && <p style={{ color: '#ef4444', fontSize: 13, margin: 0 }}>{error}</p>}
               <button onClick={handleJoin} disabled={loading} style={btnStyle('#0ea5e9')}>
                 {loading ? '…' : t('lobby.joinBtn')}
               </button>
-              <button onClick={() => { setMode('home'); setError(''); }} style={btnStyle('#94a3b8', true)}>
+              <button onClick={() => { window.location.href = '/'; }} style={btnStyle('#94a3b8', true)}>
                 ← Back
               </button>
             </div>
