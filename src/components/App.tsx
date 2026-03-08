@@ -26,20 +26,24 @@ function saveSession(s: Session): void {
   } catch {}
 }
 
-export default function App() {
+export default function App({ initialCode }: { initialCode?: string }) {
   const [session, setSession] = useState<Session | null>(() => loadSession());
 
   function handleJoined(code: string, playerId: string) {
-    const s = { code, playerId };
-    saveSession(s);
-    setSession(s);
+    saveSession({ code, playerId });
+    window.location.href = `/game/${code}`;
   }
 
   if (!session) {
-    return <Lobby onJoined={handleJoined} />;
+    return <Lobby onJoined={handleJoined} initialCode={initialCode} />;
   }
 
-  return <GameApp session={session} onLeave={() => { sessionStorage.removeItem(SESSION_KEY); setSession(null); }} />;
+  function handleLeave() {
+    sessionStorage.removeItem(SESSION_KEY);
+    window.location.href = '/';
+  }
+
+  return <GameApp session={session} onLeave={handleLeave} />;
 }
 
 function GameApp({ session, onLeave }: { session: Session; onLeave: () => void }) {

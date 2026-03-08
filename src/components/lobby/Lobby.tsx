@@ -3,13 +3,14 @@ import { useTranslation } from '../useTranslation.js';
 
 interface LobbyProps {
   onJoined: (code: string, playerId: string) => void;
+  initialCode?: string;
 }
 
-export function Lobby({ onJoined }: LobbyProps) {
+export function Lobby({ onJoined, initialCode }: LobbyProps) {
   const { t } = useTranslation();
-  const [mode, setMode] = useState<'home' | 'create' | 'join'>('home');
+  const [mode, setMode] = useState<'home' | 'create' | 'join'>(initialCode ? 'join' : 'home');
   const [name, setName] = useState('');
-  const [code, setCode] = useState('');
+  const [code, setCode] = useState(initialCode?.toUpperCase() ?? '');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
