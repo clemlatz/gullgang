@@ -9,7 +9,7 @@ interface LobbyProps {
 export function Lobby({ onJoined, initialCode }: LobbyProps) {
   const { t } = useTranslation();
   const [mode, setMode] = useState<'home' | 'create' | 'join'>(initialCode ? 'join' : 'home');
-  const [name, setName] = useState('');
+  const [name, setName] = useState(() => localStorage.getItem('playerName') ?? '');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -24,6 +24,7 @@ export function Lobby({ onJoined, initialCode }: LobbyProps) {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
+      localStorage.setItem('playerName', name.trim());
       onJoined(data.code, data.playerId);
     } catch (e: any) {
       setError(e.message);
@@ -43,6 +44,7 @@ export function Lobby({ onJoined, initialCode }: LobbyProps) {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
+      localStorage.setItem('playerName', name.trim());
       onJoined(data.code, data.playerId);
     } catch (e: any) {
       setError(e.message ?? t('errors.gameNotFound'));
